@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+     <style>
+            .container {
+              padding: 5px;
+                }
+     input {
+              width: 50%;
+              padding: 10px;
+              display: inline-block;
+              background-color:Lavender;
+            }
+     button{
+              background-color:MediumSeaGreen;
+              width:25%;
+              font-size:100%;
+              padding: 10px;
+              color: Black;
+              opacity:2.9;
+}
+a {
+  color: dodgerblue;
+}
+body {
+background-color:MediumAquamarine;
+}
+</style>
+</head>
+<body>
+<form action="register" method="post">
+  {% csrf_token %}
+  <div class="container">
+    <h1>Register</h1>
+    <h3>Please fill in this form to create an account.</h3><br>
+
+    <label><b>First Name</b></label><br>
+    <input type="text" placeholder="Enter First Name" name="first_name"required><br>
+    <label><b>Last Name</b></label><br>
+    <input type="text" placeholder="Enter Last Name" name="last_name" required><br>
+    <label><b>User Name</b></label><br>
+    <input type="text" placeholder="Enter Last Name" name="username" required><br>
+    <label><b>Email</b></label><br>
+    <input type="text" placeholder="Enter Email" name="email" required><br>
+
+    <label><b>Password</b></label><br>
+    <input type="password" placeholder="Enter Password" name="password" required><br>
+
+    <label><b>Confirm Password</b></label><br>
+    <input type="password" placeholder="Confirm Password" name="password1" required><br>
+
+
+    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+    <button type="submit">Register</button>
+    <button type="reset">Cancel</button>
+  </div>
+
+  <div class="container signin">
+    <p>Already have an account? <a href="#">Sign in</a>.</p>
+  </div>
+</form>
+{% for msg in messages %}
+<h2>{{msg}}</h2>
+{% endfor %}
+</body>
+</html>

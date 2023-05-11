@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+.container {
+              padding: 5px;
+              margin: 0 5% 0 4%;
+                }
+     input {
+              width: 40%;
+              padding: 10px;
+              display: inline-block;
+              background-color:Lavender;
+            }
+     button{
+              background-color:MediumSeaGreen;
+              width:20%;
+              font-size:100%;
+              padding: 10px;
+              color: Black;
+              opacity:2.9;
+}
+a {
+  color: dodgerblue;
+}
+body {
+background-color:MediumAquamarine;
+}
+
+    </style>
+</head>
+<body>
+
+
+<form action="login" method="post">
+    {% csrf_token %}
+  <div class="container">
+    <h2><b>Log in</b></h2>
+    <label><b>Username</b></label><br>
+    <input type="text" placeholder="Enter Username" name="username" required><br>
+
+    <label><b>Password</b></label><br>
+    <input type="password" placeholder="Enter Password" name="password" required><br>
+<br>
+    <button type="submit">Login</button>
+    <button type="reset">Cancel</button><br>
+    <span>Forgot <a href="#">password?</a></span>
+  </div>
+</form>
+{% for msg in messages %}
+<h3>{{msg}}</h3>
+{% endfor %}
+</body>
+</html>
